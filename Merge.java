@@ -1,8 +1,8 @@
 public class Merge
 {
-    private Comparable[] aux;
+    private static Comparable[] aux;
     
-    public void merge(comparable[] a, int lo, int mid, int hi)
+    public static void merge(comparable[] a, int lo, int mid, int hi)
     {
         int i = lo, j = mid+1;
         //copy array into auxillary storage
@@ -17,7 +17,7 @@ public class Merge
         else a[k] = aux[j++];
     }
     
-    public void sort(Comparable[] a, int lo, int hi)
+    public static void sort(Comparable[] a, int lo, int hi)
     {
         if(hi<=lo) return;
         int mid = lo + (hi - lo)/2;
@@ -27,4 +27,8 @@ public class Merge
         sort(a, mid+1, hi);
         merge(a, lo, mid, hi);
     }
+
+    private static boolean less(Comparable a, Comparable b)
+    {	return a.compareTo(b) < 0; }
+ 
 }
